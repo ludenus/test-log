@@ -3,17 +3,16 @@ package test.logback
 import org.slf4j.LoggerFactory
 import java.util.*
 import kotlin.system.measureTimeMillis
-
 import kotlin.test.Test
 import kotlin.test.assertFalse
 
 class LogTest {
-    val log = LoggerFactory.getLogger(javaClass)
 
     val ITERARTIONS: Int = 100_000_000
 
     @Test
     fun logString() {
+        val log = LoggerFactory.getLogger("logString")
         assertFalse { log.isTraceEnabled }
 
         val time = measureTimeMillis {
@@ -21,11 +20,12 @@ class LogTest {
                 log.trace("it=$it random=${Random()}")
             }
         }
-        log.error("logString iterations: {} time: {} ms", ITERARTIONS, time)
+        log.error("logString iterations: $ITERARTIONS time: $time ms")
     }
 
     @Test
     fun logTemplate() {
+        val log = LoggerFactory.getLogger("logTemplate")
         assertFalse { log.isTraceEnabled }
 
         val time = measureTimeMillis {
