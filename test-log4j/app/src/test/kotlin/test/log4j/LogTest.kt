@@ -20,7 +20,7 @@ class LogTest {
                 log.trace("it=$it random=${Random()}")
             }
         }
-        log.info("logString iterations: {} time: {} ms", ITERARTIONS, time)
+        log.error("logString iterations: {} time: {} ms", ITERARTIONS, time)
     }
 
     @Test
@@ -32,7 +32,7 @@ class LogTest {
                 log.trace("it={} random={}", it, Random())
             }
         }
-        log.info("logTemplate iterations: {} time: {} ms", ITERARTIONS, time)
+        log.error("logTemplate iterations: {} time: {} ms", ITERARTIONS, time)
     }
 
 }
