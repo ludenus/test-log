@@ -14,7 +14,7 @@ Calling log method with template and separate parameters is much better. `toStri
 log.trace("it={} random={}", it, Random())
 ```
 
-Lambda calls like this (note curly braces {} instead of ()) is the best way.
+Lambda calls like this (note curly braces {} instead of ()) is the **best** way.
 Object instances specified inside lambda block are not created if active log level does not match. 
 ```
 log.trace { "it=${it} random=${Random()}" }
