@@ -19,42 +19,33 @@ class LogTest {
         val time = measureTimeMillis {
             repeat(ITERARTIONS) {
                 log.trace("it=$it random=${Random()}")
-                if (it == ITERARTIONS - 1) {
-                    log.error("it=$it random=${Random()}")
-                }
             }
         }
-        log.error("logString iterations: {} time: {} ms", ITERARTIONS, time)
+        log.error("iterations: $ITERARTIONS time: $time ms")
     }
 
     @Test
     fun logTemplate() {
         val log = getLogger("logTemplate")
-
         assertFalse { log.isTraceEnabled }
 
         val time = measureTimeMillis {
             repeat(ITERARTIONS) {
                 log.trace("it={} random={}", it, Random())
-                if (it == ITERARTIONS - 1) {
-                    log.error("it={} random={}", it, Random())
-                }
             }
         }
-        log.error("logTemplate iterations: {} time: {} ms", ITERARTIONS, time)
+        log.error("iterations: {} time: {} ms", ITERARTIONS, time)
     }
 
     @Test
     fun logLambda() {
         val log = logger("logLambda")
+
         val time = measureTimeMillis {
             repeat(ITERARTIONS) {
                 log.trace { "it=${it} random=${Random()}" }
-                if (it == ITERARTIONS - 1) {
-                    log.error { "it=${it} random=${Random()}" }
-                }
             }
         }
-        log.error { "logLambda iterations: ${ITERARTIONS} time: ${time} ms" }
+        log.error { "iterations: $ITERARTIONS time: $time ms" }
     }
 }
