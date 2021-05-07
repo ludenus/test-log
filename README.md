@@ -9,14 +9,13 @@ String value is calculated regardless of active log level.
 log.trace("it=$it random=${Random()}")
 ```
 
-Calling log method with template and separate parameters is much better.
-toString() method of each provided parameter is called depending on active log level.
+Calling log method with template and separate parameters is much better. `toString()` method of each provided parameter is called depending on active log level. However object instance itself still has to be created in order to be passed as a parameter.
 ```
 log.trace("it={} random={}", it, Random())
 ```
 
 Lambda calls like this (note curly braces {} instead of ()) is the best way.
-New object instances are not created for our parameters if active log level does not match. 
+Object instances specified inside lambda block are not created if active log level does not match. 
 ```
 log.trace { "it=${it} random=${Random()}" }
 ```
