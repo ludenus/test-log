@@ -24,6 +24,21 @@ class LogTest {
     }
 
     @Test
+    fun logStringWorkaround() {
+        val log = LoggerFactory.getLogger("logString")
+        assertFalse { log.isTraceEnabled }
+
+        val time = measureTimeMillis {
+            repeat(ITERARTIONS) {
+                if (log.isTraceEnabled) {
+                    log.trace("it=$it random=${Random()}")
+                }
+            }
+        }
+        log.error("logStringWorkaround iterations: $ITERARTIONS time: $time ms")
+    }
+
+    @Test
     fun logTemplate() {
         val log = LoggerFactory.getLogger("logTemplate")
         assertFalse { log.isTraceEnabled }
