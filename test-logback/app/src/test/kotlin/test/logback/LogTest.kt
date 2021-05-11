@@ -25,7 +25,7 @@ class LogTest {
 
     @Test
     fun logStringWorkaround() {
-        val log = LoggerFactory.getLogger("logString")
+        val log = LoggerFactory.getLogger("logStringWorkaround")
         assertFalse { log.isTraceEnabled }
 
         val time = measureTimeMillis {
