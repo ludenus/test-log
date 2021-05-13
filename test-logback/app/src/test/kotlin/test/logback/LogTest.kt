@@ -24,8 +24,8 @@ class LogTest {
     }
 
     @Test
-    fun logStringWorkaround() {
-        val log = LoggerFactory.getLogger("logStringWorkaround")
+    fun logStringIf() {
+        val log = LoggerFactory.getLogger("logStringIf")
         assertFalse { log.isTraceEnabled }
 
         val time = measureTimeMillis {
@@ -35,7 +35,7 @@ class LogTest {
                 }
             }
         }
-        log.error("logStringWorkaround iterations: $ITERARTIONS time: $time ms")
+        log.error("iterations: $ITERARTIONS time: $time ms")
     }
 
     @Test
