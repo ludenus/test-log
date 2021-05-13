@@ -36,7 +36,7 @@ class LogTest {
                 }
             }
         }
-        log.error("logStringWorkaround iterations: $ITERARTIONS time: $time ms")
+        log.error("iterations: $ITERARTIONS time: $time ms")
     }
 
     @Test
